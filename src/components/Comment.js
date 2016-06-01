@@ -10,7 +10,7 @@ class Comment extends Component {
         
         return (
             <div>
-                <b>{comment.name}:</b><br/><section>{comment.text}</section>
+                <b>{comment.name}:</b><div>{comment.text}</div>
             </div>
         )
     }
@@ -18,7 +18,7 @@ class Comment extends Component {
 
 Comment.propTypes = {
     comment: PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         text: PropTypes.string
     }),

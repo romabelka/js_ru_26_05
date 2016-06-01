@@ -15,7 +15,7 @@ class CommentList extends Component {
         if (! comments || comments.length < 1) return <p><b>no comments.</b></p>;
 
         const title = isOpen ? <span>hide comments {"<<"}</span> : <span>show comments {">>"}</span>;
-        const commentItems = comments.map((comment) => <p key={comment.name}><Comment comment = {comment}/></p>);
+        const commentItems = comments.map((comment) => <div key={comment.name}><Comment comment = {comment}/></div>);
         const body = isOpen ? <ul>{commentItems}</ul> : null;
 
         return (

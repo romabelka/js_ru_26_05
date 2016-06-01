@@ -13,7 +13,8 @@ export default class Article extends Component {
         const { isOpen } = this.state;
 
         if (!article) return <h3>No article</h3>;
-        const body = isOpen ? <section>{article.text}<CommentList comments = {article.comments}/></section> : null;
+        article.comments = article.comments || [];
+        const body = isOpen ? <div>{article.text}<CommentList comments = {article.comments}/></div> : null;
 
         return (
             <div>
