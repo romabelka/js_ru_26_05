@@ -1,17 +1,19 @@
 import React, { PropTypes, Component } from 'react'
+import CommentList from './CommentList'
 
-class Article extends Component {
+
+export default class Article extends Component {
 
     state = {
         isOpen: false
-    }
+    };
 
     render() {
-        const { article } = this.props
-        const { isOpen } = this.state
+        const { article } = this.props;
+        const { isOpen } = this.state;
 
-        if (!article) return <h3>No article</h3>
-        const body = isOpen ? <section>{article.text}</section> : null
+        if (!article) return <h3>No article</h3>;
+        const body = isOpen ? <section>{article.text}<CommentList comments = {article.comments}/></section> : null;
 
         return (
             <div>
@@ -29,27 +31,12 @@ class Article extends Component {
 }
 
 
-
-/*
-function Article(props) {
-    const { article } = props
-    if (!article) return <h3>No article</h3>
-    return (
-        <div>
-            <h3>{article.title}</h3>
-            <section>{article.text}</section>
-        </div>
-    )
-}
-*/
-
 Article.propTypes = {
     article: PropTypes.shape({
+        id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         text: PropTypes.string,
-        id: PropTypes.string.isRequired
+        comments: PropTypes.array
     }),
     options: PropTypes.object
-}
-
-export default Article
+};
